@@ -1,47 +1,53 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import react from "react";
+import { useState, useEffect } from "react";
 
-const base_URL =   "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt"
+const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
 
-const Posts =(props) =>{
-    
-    const [post, setPosts] = useState([])
-    useEffect(() => {
-            const fetchPosts = async () => {
-                const resp =await fetch(`${base_URL}/posts`) ;
-                const data =await  resp.json();
-                console.log(`data`, data);
-                setPosts(data)
-                console.log(resp.json())
+const Posts =() => {
 
-            }
+    const [posts, setPosts] = useState([])
+
+
+    useEffect =(() =>{
+
+
+       const getPosts= async()=>{
+       
+          const response = await fetch(`${base_URL}/posts`)
+            .then(response => response.json())
+            .then(result => {
+            console.log(result.data.posts);
+            setPosts(result.data.posts);
+  })
+            .catch(console.error);
+
+
+
+    }
+            getPosts();
+
+            }, [])
+
+
+            return (
+                <>
                 
+                <div>
+                    <h3>working</h3>
+                </div>
+                
+                
+                
+                
+                </>
+            )
 
-            fetchPosts()
-}, [])
 
 
-
-    return <> 
-
-    <div>hi</div>
-     {/* {posts.map(post =>
-        <div key={post.id}>
-            <h3>{post.title}</h3>
-            <div>{post.body}</div>
-            
-            
-            
-            /</div>)} */}
-
-    
-    
-    </>
 
 
 
 }
-
 
 export default Posts

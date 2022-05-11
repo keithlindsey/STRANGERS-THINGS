@@ -1,63 +1,68 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useState } from 'react';
+import { BrowserRouter, Route, Link, Routes, Switch } from 'react-router-dom';
 
-const base_URL =   "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt"
 
-// import Posts from './Posts';
+import Posts from './Posts';
 
 const App = () => {
-    
-  const[posts, setPosts] = useState([]);
-  console.log(`posts`, posts)
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-        const resp =await fetch(`${base_URL}/posts`) ;
-        const data =await  resp.json();
-        console.log(`data`, data);
-        setPosts(data);
-    }
-        fetchPosts();
-  },[])
-  
-
-  console.log(posts)
-
-
- return(
-   <div>
- <header>Strangers Things</header>
+   return  <> 
    
-    {posts.map(post => <div key={post.id}>
-
-      <h3>{post.username}</h3>
-      <div>{post.description}</div>
-
-      </div>
-
-      
-      
-      )}
+        <div className='Links_Container'>
+            <div className='Links_Header'>
+              <p className='Title'>Strangers Things</p>
 
 
+              <nav className='Nav_Bar'>
+              <Link to ="/Posts" className="link">Posts</Link>
+              <Link to ='/User_Account' className='link'>Your Account</Link>
+              <Link to ="/signup" className="link">SignUp</Link>
+              <Link to ="/login" className="link">LogIn</Link>
+              <Link to ="/logout" className="link">LogOut</Link>
+              
+              
+              
+              </nav>
+            
+            
+            </div>
+
+            <div className='Main'>
+              
+            <Route path="/posts">
+              <Posts />
+            </Route>
+
+
+           
+
+           
+            </div>
+        
+        
+        </div>
+
+    
+    </>
 
 
 
 
-
-  </div>
-
-
- )
 
 }
- 
+
+    
+  
  
 
 
   ReactDOM.render(
-    <App />,
+    <BrowserRouter>
+      <App />
+
+    </BrowserRouter>,
+    
    
     document.getElementById('app'),
   )
