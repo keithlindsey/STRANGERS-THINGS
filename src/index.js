@@ -4,25 +4,22 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Link, Routes, Switch } from 'react-router-dom';
 
 
-import Posts from './Posts';
+import Posts from './components/Posts';
 
 const App = () => {
    return  <> 
-   
+          <BrowserRouter>
         <div className='Links_Container'>
             <div className='Links_Header'>
               <p className='Title'>Strangers Things</p>
 
 
               <nav className='Nav_Bar'>
-              <Link to ="/Posts" className="link">Posts</Link>
-              <Link to ='/User_Account' className='link'>Your Account</Link>
-              <Link to ="/signup" className="link">SignUp</Link>
-              <Link to ="/login" className="link">LogIn</Link>
-              <Link to ="/logout" className="link">LogOut</Link>
-              
-              
-              
+                <Link to ="/Posts" className="link">Posts</Link>
+                <Link to ='/User_Account' className='link'>Your Account</Link>
+                <Link to ="/signup" className="link">SignUp</Link>
+                <Link to ="/login" className="link">LogIn</Link>
+                <Link to ="/logout" className="link">LogOut</Link>
               </nav>
             
             
@@ -30,7 +27,7 @@ const App = () => {
 
             <div className='Main'>
               
-            <Route path="/posts">
+            <Route path="/Posts">
               <Posts />
             </Route>
 
@@ -42,7 +39,7 @@ const App = () => {
         
         
         </div>
-
+        </BrowserRouter>
     
     </>
 
@@ -58,10 +55,10 @@ const App = () => {
 
 
   ReactDOM.render(
-    <BrowserRouter>
-      <App />
+    // <BrowserRouter>
+      <App />,
 
-    </BrowserRouter>,
+    // </BrowserRouter>,
     
    
     document.getElementById('app'),
