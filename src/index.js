@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useState } from 'react';
+import { useState, } from 'react';
 import { BrowserRouter, Route, Link, Routes, Switch } from 'react-router-dom';
 
 
@@ -14,6 +14,12 @@ import AuthentecatedPosts from './components/authenticatedposts';
 import SwithPost from './components/SwitchPosts';
 
 const App = () => {
+  
+  const [posts, setPosts] = useState([])
+  const [username, setUsername] = useState("");
+
+  
+
    return  <> 
           <BrowserRouter>
         <div className='Links_Container'>
@@ -35,7 +41,7 @@ const App = () => {
             <div className='Main'>
               
             <Route path="/Posts">
-              < SwithUsers/>
+              < SwithUsers />
             </Route>
 
             <Route path="/signup">
@@ -43,7 +49,7 @@ const App = () => {
             </Route>
 
             <Route path="/login">
-              <LoginPage />
+              <LoginPage username = {username} setUsername={setUsername} />
             </Route>
 
             <Route path="/logout">

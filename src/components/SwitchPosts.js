@@ -1,16 +1,14 @@
 import react from "react";
-import Posts from "./Posts";
-import UserPosts from "./Userposts";
-import AuthentecatedPosts from "./authenticatedposts";
 import CreatePost from "../api";
+import { useState } from "react";
 
 const SwithPost =  () =>{
-
+    const [posts, setPosts] = useState([])
     const userToken = localStorage.getItem("userToken");
 
     return(
         <>
-        {userToken ? <CreatePost/> :<div>Please Sign In..</div>    }    
+        {userToken ? <CreatePost posts ={posts} setPosts={setPosts}/> :<div>Please Sign In..</div>    }    
         </>
     )
 

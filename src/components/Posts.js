@@ -5,7 +5,7 @@ const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt"
 
 const Posts =() => {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts]= useState([])
     const [search, setSearchTerm] = useState("")
 
   

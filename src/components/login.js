@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt")
 
 
-const LoginForm = () => {
-
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+const LoginForm = ({username, setUsername,}) => {
+    const [password, setPassword] = useState([])
 
     const LoginPage = async (event) => {
         event.preventDefault();
