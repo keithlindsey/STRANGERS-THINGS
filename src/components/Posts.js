@@ -28,12 +28,7 @@ const Posts =() => {
          
              return (
                 <>
-                <div>
-                    <input type = "text" placeholder="Search Posts" value={search} className = "Search Bar"
-                     onChange={(event) => setSearchTerm(event.target.value)}></input>
                 
-                
-                </div>
 
               
 
