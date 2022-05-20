@@ -1,11 +1,13 @@
 import react from "react";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt")
 
 
-const LoginForm = ({username, setUsername,}) => {
+const LoginForm = ({username, setUserName,}) => {
     const [password, setPassword] = useState([])
+    const history = useHistory()
 
     const LoginPage = async (event) => {
         event.preventDefault();
@@ -29,20 +31,22 @@ const LoginForm = ({username, setUsername,}) => {
             })
             .catch(console.error);
 
-        setUsername("");
+        setUserName("");
         setPassword("");
+
+        history.push("/Posts")
 
     }
     return (
         <>
             <h1 className="login_form">Log In To your account!!!!</h1>
 
-            <form onSubmit={LoginPage}>
+            <form  className="form" onSubmit={LoginPage}>
                 <input type="text"
                  placeholder="Username"
                  className="user_name"
                  value={username}
-                 onChange={(event) => setUsername(event.target.value)}>
+                 onChange={(event) => setUserName(event.target.value)}>
                 </input>
 
                 <input type="password"
@@ -55,7 +59,7 @@ const LoginForm = ({username, setUsername,}) => {
                 <br></br><br></br>
 
                 <button type="submit"
-                 className="login-Btn">
+                 className="myButton ">
                  LOG IN
                 </button>
 

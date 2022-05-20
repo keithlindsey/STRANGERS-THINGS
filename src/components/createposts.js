@@ -1,5 +1,8 @@
 import react from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
@@ -9,6 +12,8 @@ const CreatePost = ({posts, setPosts}) =>{
     const [price, setPrice] = useState ("");
     const [location, setLocation] = useState ("");
     const [willDeliver, setWillDeliver] = useState(false);
+    const history= useHistory()
+    
 
     const submit = async (event) => {
         event.preventDefault();
@@ -48,14 +53,15 @@ const CreatePost = ({posts, setPosts}) =>{
             setPrice("");
             setLocation("");
             setWillDeliver(false);
+            history.push("/posts")
 
     }
 
     return (
         <>
-                <h1> Create Post!!</h1>
+                <h1 className="login_form"> Create A Listing!!</h1>
 
-                <form>
+                <form className="form">
 
                 <input type="Text" className="New_post" placeholder="Title"  value={title}
                     onChange={(event) =>{setTitle(event.target.value)}}
@@ -85,7 +91,7 @@ const CreatePost = ({posts, setPosts}) =>{
 
 
 
-                <button onClick={submit} type="submit" className="submit_post_btn">Submit</button>
+                <button onClick={submit} type="submit" className="myButton ">Submit</button>
 
 
 

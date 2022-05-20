@@ -1,0 +1,83 @@
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0%;
+    background-color: rgb(154, 157, 160);
+}
+
+.Links_Container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(154, 157, 160);
+    
+    
+}
+
+.nav_bar {display: flex;
+    justify-content: space-around;
+    padding: 1% 1% 1% 1% ;
+    height: 5vw;
+    border: 6px solid #000e17;
+    margin: 25 25 25 25;
+    align-items: auto;
+    background-color: rgb(151, 173, 174);
+    -webkit-box-shadow: -1px 3px 47px 14px rgba(0,0,0,0.81); 
+box-shadow: -1px 3px 47px 14px rgba(0,0,0,0.81);
+border-radius: 50px 50px 50px 50px;
+
+
+}
+
+.Title {display: flex;
+    
+    justify-content: center;
+    font-family: Impact, Charcoal, sans-serif;
+font-size: 50px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #92405C;
+font-weight: 400;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+text-shadow: -1px -7px 6px #FF7219;;
+}
+
+.login_form {
+    display: flex;
+    font-size: 50px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #92405C;
+font-weight: 400;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+text-shadow: -1px -7px 6px #FF7219;;
+font-family: Impact, Charcoal, sans-serif;
+text-align: center;
+justify-content: center;
+align-items: center;
+
+
+
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}
+
+
+ .posts {
+
+    
+ }

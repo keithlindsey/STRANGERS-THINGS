@@ -4,19 +4,21 @@ import { useState, } from 'react';
 import { BrowserRouter, Route, Link, Routes, Switch } from 'react-router-dom';
 
 
-import Posts from './components/Posts';
+
 import SignUp from './components/registerform';
 import LoginPage from './components/login';
 import LogOut from './components/logout';
 import SwithUsers from './components/switchusers';
-import CreatePost from './api';
-import AuthentecatedPosts from './components/authenticatedposts';
 import SwithPost from './components/SwitchPosts';
 
 const App = () => {
   
   const [posts, setPosts] = useState([])
-  const [username, setUsername] = useState("");
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const defaultToken = localStorage.getItem("userToken")
+  const [token, setToken] = useState(defaultToken);
+  
 
   
 
@@ -27,7 +29,7 @@ const App = () => {
               <p className='Title'>Strangers Things</p>
 
 
-              <nav className='Nav_Bar'>
+              <nav className='nav_bar'>
                 <Link to ="/Posts" className="link">Posts</Link>
                 <Link to ='/User_Account' className='link'>Create a Listing</Link>
                 <Link to ="/signup" className="link">SignUp</Link>
@@ -41,15 +43,15 @@ const App = () => {
             <div className='Main'>
               
             <Route path="/Posts">
-              < SwithUsers />
+              < SwithUsers posts = {posts} setPosts={setPosts} />
             </Route>
 
             <Route path="/signup">
-              <SignUp />
+              <SignUp  username = {username} setUserName={setUserName}/>
             </Route>
 
             <Route path="/login">
-              <LoginPage username = {username} setUsername={setUsername} />
+              <LoginPage username = {username} setUserName={setUserName}  password={password} setPassword={setPassword}/>
             </Route>
 
             <Route path="/logout">

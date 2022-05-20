@@ -1,19 +1,14 @@
 import react from "react";
 import { useState, useEffect } from "react";
-// import deletePost from "../helpers";
+
 
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
 
-const AuthentecatedPosts =() =>{
-        const [posts, setPosts] = useState([])
-        const [search, setSearchTerm] = useState([])
-        const token = localStorage.getItem("userToken")
-        console.log(token)
-
-
-    
+const AuthentecatedPosts =({posts, setPosts, token}) =>{
+         const [search, setSearchTerm] = useState([])
+        
         const deletePost = async (IdToDelete) => {
             const response = await fetch(`${base_URL}/posts/${IdToDelete}`,{
                 method: 'DELETE',
@@ -32,15 +27,6 @@ const AuthentecatedPosts =() =>{
                 })
                 .catch(console.error);
         }
-
-
-
-
-
-
-
-
-
 
         useEffect(()=>{
 
@@ -71,13 +57,13 @@ const AuthentecatedPosts =() =>{
         
         {
                     posts.map((post) => (
-                    <div key={post._id}>
+                    <div className="posts" key={post._id}>
                         <h2>{post.title}</h2>
                         <p>{post.description}</p>
                         <h3>Price: {post.price}</h3>
                         <h3>Seller: {post.author.username}</h3>
                         <h3>Location: {post.location}</h3> 
-                        <button key ={post._id} disabled ={!post.isAuthor ? true : false} className="delete_button"
+                        <button key ={post._id} disabled ={!post.isAuthor ? true : false} className="myButton "
                         onClick={()=> deletePost(post._id)}
                         >Delete</button>
                     </div>)

@@ -8,14 +8,14 @@ console.log(token)
 
 
 const LogOut =() =>{
-    console.log(token)
+    
     localStorage.clear();
-    console.log(token)
+    
    
 
     return (
 
-        <h1>You have logged out, please come back!!!!</h1>
+        <h1 className="login_form">You have logged out, please come back!!!!</h1>
 
     )
 }

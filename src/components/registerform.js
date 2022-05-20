@@ -1,16 +1,19 @@
    
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
-const SignUp = () => {
-    const [username, setUserName] = useState("");
+const SignUp = ({username, setUserName}) => {
+    // const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmed, setConfirmed] = useState("");
+    const history = useHistory()
 
 
     const Submit = async (event) => {
         event.preventDefault();
+        
 
         if (password !== confirmed) {
             alert("Passwords Don't match")
@@ -42,14 +45,16 @@ const SignUp = () => {
             setPassword("");
             setConfirmed("");
 
+            history.push("/posts")
+
         }
 
     }
     return (
         <>
-            <h1 id="register">Sign Up!!!!</h1>
+            <h1 className='login_form'>Sign Up!!!!</h1>
 
-            <form onSubmit={Submit}>
+            <form className='form' onSubmit={Submit}>
                 <input type="text" placeholder="Username"
                     value={username} className="user_name"
                     onChange={(event) => { setUserName(event.target.value) }}
@@ -70,7 +75,7 @@ const SignUp = () => {
 
                 <br></br><br></br>
 
-                <button type="submit" className="submit-Btn">Submit</button>
+                <button type="submit" className="myButton">Submit</button>
             </form>
 
             
