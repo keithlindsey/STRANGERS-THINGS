@@ -49,7 +49,7 @@ const AuthentecatedPosts =({posts, setPosts, token}) =>{
 
 
 
-              
+              <div className="post_container">
         
         {
                     posts.map((post) => (
@@ -65,7 +65,7 @@ const AuthentecatedPosts =({posts, setPosts, token}) =>{
                     </div>)
                 )}
         
-        
+        </div>
         
         </>)
 

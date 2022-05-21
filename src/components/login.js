@@ -28,6 +28,7 @@ const LoginForm = ({username, setUserName, password, setPassword}) => {
                 const token = result.data.token;
                 
                 localStorage.setItem("userToken", token);
+                alert(result.data.message)
             })
             .catch(console.error);
 

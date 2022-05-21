@@ -5,6 +5,11 @@ import { useState, useEffect } from "react";
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
 const Posts =({posts, setPosts}) => {
+
+
+
+
+    
    useEffect(()=>{
         const getPosts = async () => {
             const response = await fetch(`${base_URL}/posts`)
@@ -27,7 +32,7 @@ const Posts =({posts, setPosts}) => {
                 <>
                 
 
-              
+              <div className="post_container">
 
 
 
@@ -44,7 +49,7 @@ const Posts =({posts, setPosts}) => {
                 )}
                     
                
-                
+                    </div>
         
 
                 </>

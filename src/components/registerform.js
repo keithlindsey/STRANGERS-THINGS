@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
 const SignUp = ({username, setUserName, password, setPassword}) => {
-   
-    
     const [confirmed, setConfirmed] = useState("");
     const history = useHistory()
 
@@ -38,12 +36,14 @@ const SignUp = ({username, setUserName, password, setPassword}) => {
                     const token = result.data.token;
                     localStorage.setItem("userToken", token)
                     console.log(token);
+                    alert(result.data.message)
                 })
                 .catch(console.error);
 
             setUserName("");
             setPassword("");
             setConfirmed("");
+            
 
             history.push("/posts")
 
