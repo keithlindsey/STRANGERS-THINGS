@@ -1,12 +1,7 @@
 import react, { useEffect, useState } from "react";
 import reactDom from "react-dom";
-
-
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 const token = localStorage.getItem("userToken")
-console.log(token)
-
-
 const LogOut =() =>{
     
     localStorage.clear();

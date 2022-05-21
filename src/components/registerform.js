@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
-const SignUp = ({username, setUserName}) => {
-    // const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+const SignUp = ({username, setUserName, password, setPassword}) => {
+   
+    
     const [confirmed, setConfirmed] = useState("");
     const history = useHistory()
 

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt") 
 
-const CreatePost = ({posts, setPosts}) =>{
+const CreatePost = ({token}) =>{
     const [title, setTitle] = useState("");
     const [description, setDescirtion] = useState("");
     const [price, setPrice] = useState ("");
@@ -14,12 +14,11 @@ const CreatePost = ({posts, setPosts}) =>{
     const [willDeliver, setWillDeliver] = useState(false);
     const history= useHistory()
     
+    
 
     const submit = async (event) => {
         event.preventDefault();
-
-        const token= localStorage.getItem("userToken")
-
+       
         const response = fetch(`${base_URL}/posts`, {
             method: 'POST',
             headers: {
@@ -39,12 +38,7 @@ const CreatePost = ({posts, setPosts}) =>{
         }).then(response => response.json())
             .then(result =>{
                 console.log([result.data.post]);
-
-                const array = posts.concat([result.data.post])
-
-                console.log(posts)
-
-            })
+             })
             .catch(console.error);
 
 

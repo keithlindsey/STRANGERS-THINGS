@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useState, } from 'react';
 import { BrowserRouter, Route, Link, Routes, Switch } from 'react-router-dom';
-
-
-
 import SignUp from './components/registerform';
 import LoginPage from './components/login';
 import LogOut from './components/logout';
@@ -18,15 +15,11 @@ const App = () => {
   const [password, setPassword] = useState("");
   const defaultToken = localStorage.getItem("userToken")
   const [token, setToken] = useState(defaultToken);
-  
-
-  
-
-   return  <> 
+  return  <> 
           <BrowserRouter>
-        <div className='Links_Container'>
+            <div className='Links_Container'>
             <div className='Links_Header'>
-              <p className='Title'>Strangers Things</p>
+                   <p className='Title'>Strangers Things</p>
 
 
               <nav className='nav_bar'>
@@ -43,11 +36,11 @@ const App = () => {
             <div className='Main'>
               
             <Route path="/Posts">
-              < SwithUsers posts = {posts} setPosts={setPosts} />
+              < SwithUsers posts = {posts} setPosts={setPosts} token = {token} />
             </Route>
 
             <Route path="/signup">
-              <SignUp  username = {username} setUserName={setUserName}/>
+              <SignUp  username = {username} setUserName={setUserName} password={password} setPassword={setPassword}/>
             </Route>
 
             <Route path="/login">
@@ -59,7 +52,7 @@ const App = () => {
             </Route>
 
             <Route path="/User_Account">
-              <SwithPost />
+              <SwithPost token={token}/>
             </Route>
 
            
@@ -85,10 +78,10 @@ const App = () => {
 
 
   ReactDOM.render(
-    // <BrowserRouter>
+   
       <App />,
 
-    // </BrowserRouter>,
+    
     
    
     document.getElementById('app'),

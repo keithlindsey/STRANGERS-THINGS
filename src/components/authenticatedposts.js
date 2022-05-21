@@ -7,9 +7,8 @@ const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt"
 
 
 const AuthentecatedPosts =({posts, setPosts, token}) =>{
-         const [search, setSearchTerm] = useState([])
-        
-        const deletePost = async (IdToDelete) => {
+
+         const deletePost = async (IdToDelete) => {
             const response = await fetch(`${base_URL}/posts/${IdToDelete}`,{
                 method: 'DELETE',
                 headers: {
@@ -48,12 +47,9 @@ const AuthentecatedPosts =({posts, setPosts, token}) =>{
 
         return (<>
 
-                <div>
-                    <input type = "text" placeholder="Search Posts" value={search} className = "Search Bar"
-                     onChange={(event) => setSearchTerm(event.target.value)}></input>
-                
-                
-                </div>
+
+
+              
         
         {
                     posts.map((post) => (

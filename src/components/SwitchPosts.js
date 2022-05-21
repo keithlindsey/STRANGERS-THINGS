@@ -1,14 +1,12 @@
 import react from "react";
 import CreatePost from "./createposts";
-import { useState } from "react";
 
-const SwithPost =  ({posts, setPosts}) =>{
-   
+
+const SwithPost =  ({token}) =>{
     const userToken = localStorage.getItem("userToken");
-
     return(
         <>
-        {userToken ? <CreatePost posts ={posts} setPosts={setPosts}/> :<div className="login_form">Please Sign In..</div>    }    
+        {userToken ? <CreatePost token ={token}/> :<div className="login_form">Please Sign In..</div>    }    
         </>
     )
 

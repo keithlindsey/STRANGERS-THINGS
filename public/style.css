@@ -26,6 +26,8 @@ body {
     -webkit-box-shadow: -1px 3px 47px 14px rgba(0,0,0,0.81); 
 box-shadow: -1px 3px 47px 14px rgba(0,0,0,0.81);
 border-radius: 50px 50px 50px 50px;
+font-family: sans-serif;
+
 
 
 }
@@ -66,18 +68,13 @@ align-items: center;
 
 
 }
-
-.form{
+.form { 
     display: flex;
-    align-items: center;
     justify-content: center;
-    
+    align-items: center;
+
 
 
 }
 
 
- .posts {
-
-    
- }

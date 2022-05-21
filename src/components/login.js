@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 const base_URL= ("https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt")
 
 
-const LoginForm = ({username, setUserName,}) => {
-    const [password, setPassword] = useState([])
+const LoginForm = ({username, setUserName, password, setPassword}) => {
+    
     const history = useHistory()
 
     const LoginPage = async (event) => {
